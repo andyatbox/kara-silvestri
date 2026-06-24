@@ -35,21 +35,21 @@ void main() {
   uv.y = 1.0 - uv.y; // flip to match image orientation
 
   float t = uTime;
-  // gentle layered ripple, stronger toward the bottom (deeper water)
-  float depth = mix(0.4, 1.0, uv.y);
+  // layered ripple, a little stronger toward the bottom (deeper water)
+  float depth = mix(0.6, 1.0, uv.y);
   vec2 d;
-  d.x = sin(uv.y * 16.0 + t * 0.8) * 0.0035
-      + sin(uv.y * 31.0 - t * 0.5) * 0.0018;
-  d.y = sin(uv.x * 14.0 + t * 0.9) * 0.0035
-      + sin(uv.x * 27.0 + t * 0.6) * 0.0018;
+  d.x = sin(uv.y * 12.0 + t * 0.9) * 0.010
+      + sin(uv.y * 26.0 - t * 0.6) * 0.005;
+  d.y = sin(uv.x * 11.0 + t * 1.0) * 0.010
+      + sin(uv.x * 23.0 + t * 0.7) * 0.005;
   uv += d * depth;
 
   vec3 col = texture2D(uTex, uv).rgb;
 
-  // faint moving caustic light
-  float c = sin((uv.x + uv.y) * 22.0 + t * 1.2)
-          * cos((uv.x - uv.y) * 18.0 - t * 0.9);
-  col += c * 0.018 * depth;
+  // moving caustic light shimmer (reads as rippling water even on dark frames)
+  float c = sin((uv.x + uv.y) * 20.0 + t * 1.3)
+          * cos((uv.x - uv.y) * 16.0 - t * 1.0);
+  col += c * 0.05 * depth;
 
   gl_FragColor = vec4(col, 1.0);
 }`;
