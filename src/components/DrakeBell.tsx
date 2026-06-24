@@ -61,7 +61,7 @@ function DrakeBellModal({ onClose }: { onClose: () => void }) {
       role="dialog"
       aria-modal="true"
       aria-label="Drake Bell × Kara Silvestri"
-      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-md sm:p-8 animate-[fadeIn_.3s_ease]"
+      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/80 px-4 pb-6 pt-24 backdrop-blur-md sm:px-8 sm:pb-10 sm:pt-28 animate-[fadeIn_.3s_ease]"
       onClick={onClose}
     >
       <div

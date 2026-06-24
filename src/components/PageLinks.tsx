@@ -7,9 +7,11 @@ import { NAV_ITEMS } from "@/lib/site";
  * and slides its label on hover.
  */
 export default function PageLinks() {
+  // Exclude the home/Bio link — this list lives on the homepage itself.
+  const items = NAV_ITEMS.filter((item) => item.href !== "/");
   return (
     <nav aria-label="Explore" className="divide-y divide-white/10 border-y border-white/10">
-      {NAV_ITEMS.map((item, i) => (
+      {items.map((item, i) => (
         <Reveal key={item.href} delay={i * 80}>
           <Link
             href={item.href}
