@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import FixedBackground from "@/components/FixedBackground";
 import { CONTACT } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
 
 export default function ConnectPage() {
   return (
-    <div className="bg-black">
+    <div className="relative">
+      <FixedBackground src="/assets/acting-connect-bg.jpg" overlay={0.6} />
       <section className="mx-auto max-w-5xl px-6 pb-20 pt-36 sm:px-8 sm:pb-28 sm:pt-44">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
           <Reveal>
@@ -29,8 +31,8 @@ export default function ConnectPage() {
 
           <div className="text-center md:text-left">
             <Reveal delay={60}>
-              <h1 className="text-3xl font-extralight tracking-wide sm:text-5xl">
-                Let&apos;s Connect!
+              <h1 className="text-3xl font-extralight uppercase tracking-[0.12em] sm:text-5xl">
+                Contact
               </h1>
             </Reveal>
             <Reveal delay={120}>

@@ -35,9 +35,30 @@ body {
   font-size: 0.78rem;
 }
 
+/* Animated underline for nav links: grows from left on hover, full when active */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4em;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-underline:hover::after,
+.nav-underline[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
 /* Larger, airier body copy on non-mobile per direction */
 .body-copy {
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.85;
   font-size: 1.05rem;
 }
@@ -46,6 +67,27 @@ body {
   .body-copy {
     font-size: 1.3rem;
     line-height: 1.9;
+  }
+}
+
+/* Slow pulsate for the live-event CTA */
+@keyframes ctaPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 28px 2px rgba(255, 255, 255, 0.12);
+  }
+}
+.cta-pulse {
+  animation: ctaPulse 2.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-pulse {
+    animation: none;
   }
 }
 

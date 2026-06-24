@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
+import FixedBackground from "@/components/FixedBackground";
 
 export const metadata: Metadata = {
   title: "Acting",
@@ -9,15 +10,17 @@ export const metadata: Metadata = {
 
 export default function ActingPage() {
   return (
-    <div className="bg-black">
-      <section className="mx-auto max-w-3xl px-6 pb-16 pt-36 sm:px-8 sm:pb-24 sm:pt-44">
+    <div className="relative">
+      <FixedBackground src="/assets/acting-connect-bg.jpg" overlay={0.6} />
+
+      <section className="mx-auto max-w-3xl px-6 pb-32 pt-36 sm:px-8 sm:pb-40 sm:pt-44">
         <Reveal>
           <h1 className="text-3xl font-extralight leading-tight tracking-wide sm:text-5xl">
             Acting &amp; Film
           </h1>
         </Reveal>
 
-        <div className="mt-10 space-y-7 text-white/80">
+        <div className="mt-10 space-y-7 text-white/85">
           <Reveal delay={60}>
             <p className="body-copy">
               Kara&apos;s relationship with the camera runs in both directions.
@@ -64,20 +67,17 @@ export default function ActingPage() {
             </p>
           </Reveal>
         </div>
-
-        <Reveal delay={300}>
-          <div className="mt-16">
-            <a
-              href="/assets/KaraSilvestri-Resume_2024.pdf"
-              download
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-white/30 px-9 py-4 text-sm font-medium uppercase tracking-[0.2em] text-white transition hover:border-white hover:bg-white hover:text-black"
-            >
-              <span>Download Résumé</span>
-              <span aria-hidden>↓</span>
-            </a>
-          </div>
-        </Reveal>
       </section>
+
+      {/* Floating résumé download (bottom-right, like the live-event CTA) */}
+      <a
+        href="/assets/KaraSilvestri-Resume_2024.pdf"
+        download
+        className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-3 rounded-full border border-white/25 bg-black/55 px-7 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white shadow-xl backdrop-blur-md transition hover:border-white hover:bg-white hover:text-black sm:bottom-6 sm:right-6 sm:text-sm"
+      >
+        <span>Download Résumé</span>
+        <span aria-hidden>↓</span>
+      </a>
     </div>
   );
 }

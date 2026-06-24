@@ -65,7 +65,7 @@ function DrakeBellModal({ onClose }: { onClose: () => void }) {
       onClick={onClose}
     >
       <div
-        className="relative my-auto w-full max-w-5xl rounded-2xl border border-white/10 bg-[#070b0c] shadow-2xl"
+        className="relative my-auto max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-2xl border border-white/10 bg-[#070b0c] shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -78,13 +78,13 @@ function DrakeBellModal({ onClose }: { onClose: () => void }) {
         </button>
 
         <div className="grid grid-cols-1 gap-8 p-6 sm:p-10 md:grid-cols-2 md:gap-12">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-black/40">
-            <Image
+          <div className="w-full overflow-hidden rounded-xl bg-black/40">
+            {/* Plain img so the flyer is shown in full and never cropped. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/assets/DBxKS.jpg"
               alt="Drake Bell × Kara Silvestri event flyer"
-              fill
-              sizes="(min-width: 768px) 40vw, 90vw"
-              className="object-cover"
+              className="block h-auto w-full"
             />
           </div>
 
@@ -93,7 +93,7 @@ function DrakeBellModal({ onClose }: { onClose: () => void }) {
               Join me for a Night of Music &amp; Celebration
             </h2>
 
-            <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-white/80 sm:text-base">
+            <div className="mt-6 space-y-5 text-sm font-normal leading-relaxed text-white/80 sm:text-base">
               <p>
                 I&apos;m so excited to share that I&apos;ll be opening for Drake
                 Bell on{" "}
@@ -151,7 +151,7 @@ export function DrakeBellCTA() {
       type="button"
       onClick={open}
       aria-label="Drake Bell × Kara Silvestri — open details"
-      className="group fixed bottom-4 right-4 z-50 flex items-center gap-3 rounded-full border border-white/15 bg-black/50 py-2 pl-2 pr-5 shadow-xl backdrop-blur-md transition hover:border-white/40 hover:bg-black/70 sm:bottom-6 sm:right-6"
+      className="cta-pulse group fixed bottom-4 right-4 z-50 flex items-center gap-3 rounded-full border border-white/15 bg-black/50 py-2 pl-2 pr-5 shadow-xl backdrop-blur-md transition-colors hover:border-white/40 hover:bg-black/70 sm:bottom-6 sm:right-6"
     >
       <span className="relative block h-12 w-12 overflow-hidden rounded-full ring-1 ring-white/20 sm:h-14 sm:w-14">
         <Image
@@ -163,8 +163,8 @@ export function DrakeBellCTA() {
         />
       </span>
       <span className="text-left leading-tight">
-        <span className="block text-[0.6rem] uppercase tracking-[0.2em] text-white/60">
-          Live
+        <span className="block text-[0.6rem] uppercase tracking-[0.2em] text-white">
+          Live July 29th, 2026
         </span>
         <span className="block text-xs font-medium uppercase tracking-[0.12em] text-white sm:text-sm">
           Drake Bell <span className="text-white/50">×</span> Kara
