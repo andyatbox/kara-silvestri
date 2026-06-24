@@ -15,18 +15,30 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://karasilvestri.com"),
   title: {
-    default: "Kara Silvestri — Creative Director, Filmmaker, Musician, Actress",
+    default: "Kara Silvestri",
     template: "%s — Kara Silvestri",
   },
-  description:
-    "Kara Silvestri is a multidisciplinary artist, designer, and creative director based between New Jersey and New York City. Her work spans creative direction, advertising, motion design, UX/UI, filmmaking, acting, and music.",
+  description: "Creative Designer / Film Director",
   openGraph: {
     title: "Kara Silvestri",
-    description:
-      "Creative Director · Filmmaker · Musician · Actress · Host. A multidisciplinary artist based between New Jersey and New York City.",
+    description: "Creative Designer / Film Director",
     url: "https://karasilvestri.com",
     siteName: "Kara Silvestri",
     type: "website",
+    images: [
+      {
+        url: "/assets/underwater-home.jpg",
+        width: 1550,
+        height: 1034,
+        alt: "Kara Silvestri",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kara Silvestri",
+    description: "Creative Designer / Film Director",
+    images: ["/assets/underwater-home.jpg"],
   },
 };
 
