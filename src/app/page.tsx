@@ -26,24 +26,22 @@ export default function HomePage() {
         <div className="pointer-events-none absolute inset-x-0 top-0 z-[6] h-40 bg-gradient-to-b from-black/45 to-transparent" />
         {/* Bottom fade: ~200px black -> transparent so it only overlaps the fold slightly */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-[200px] bg-gradient-to-t from-black to-transparent" />
-
-        {/* Wordmark: left edge of the image sits at the 60% line, scaled responsively */}
-        <div className="absolute left-[60%] top-1/2 z-10 -translate-y-1/2 pr-5">
-          <Image
-            src="/assets/logo-content-black.png"
-            alt="Kara Silvestri"
-            width={460}
-            height={180}
-            priority
-            className="h-auto w-[clamp(150px,32vw,420px)] drop-shadow-[0_2px_30px_rgba(255,255,255,0.22)]"
-          />
-        </div>
       </section>
 
       {/* Bio — pulled up just slightly so only a few lines peek on landing */}
       <section className="relative z-10 mx-auto -mt-[6vh] max-w-4xl px-6 pb-24 sm:-mt-[5vh] sm:px-8 sm:pb-36">
+        <Reveal className="flex justify-center">
+          <Image
+            src="/assets/logo-content-white.png"
+            alt="Kara Silvestri"
+            width={460}
+            height={180}
+            priority
+            className="mb-8 h-auto w-[clamp(180px,40vw,440px)]"
+          />
+        </Reveal>
         <Reveal>
-          <h2 className="text-balance text-2xl font-extralight leading-tight tracking-wide sm:text-3xl md:text-[2.6rem]">
+          <h2 className="text-balance text-center text-2xl font-extralight leading-tight tracking-wide sm:text-3xl md:text-[2.6rem]">
             Creative Director + Filmmaker + Musician + Actress + Host
           </h2>
         </Reveal>
