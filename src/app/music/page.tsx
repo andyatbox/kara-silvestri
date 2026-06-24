@@ -25,7 +25,7 @@ export default async function MusicPage() {
           alt="Kara Silvestri"
           priority
           position="center top"
-          overlay={0.2}
+          overlay={0}
           speed={0.18}
         />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent" />
