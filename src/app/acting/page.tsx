@@ -13,7 +13,7 @@ export default function ActingPage() {
     <div className="relative">
       <FixedBackground src="/assets/underwater.jpg" />
 
-      <section className="mx-auto mt-[50vh] max-w-3xl px-6 pb-32 pt-36 sm:px-8 sm:pb-40 sm:pt-44">
+      <section className="mx-auto mt-[30vh] max-w-3xl px-6 pb-32 pt-36 sm:px-8 sm:pb-40 sm:pt-44">
         <Reveal>
           <h1 className="text-3xl font-extralight leading-tight tracking-wide sm:text-5xl">
             Acting &amp; Film
