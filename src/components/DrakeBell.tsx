@@ -164,10 +164,10 @@ export function DrakeBellCTA() {
       </span>
       <span className="text-left leading-tight">
         <span className="block text-[0.6rem] uppercase tracking-[0.2em] text-white">
-          Live July 29th, 2026
+          July 29th, 2026
         </span>
         <span className="block text-xs font-medium uppercase tracking-[0.12em] text-white sm:text-sm">
-          Drake Bell <span className="text-white/50">×</span> Kara
+          Drake <span className="text-white/50">×</span> Kara Live
         </span>
       </span>
     </button>
