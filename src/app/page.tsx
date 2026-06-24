@@ -28,7 +28,7 @@ export default function HomePage() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-[200px] bg-gradient-to-t from-black to-transparent" />
 
         {/* Wordmark: left edge of the image sits at the 60% line, scaled responsively */}
-        <div className="absolute left-[60%] top-[16%] z-10 pr-5">
+        <div className="absolute left-[60%] top-1/2 z-10 -translate-y-1/2 pr-5">
           <Image
             src="/assets/logo-content-black.png"
             alt="Kara Silvestri"
