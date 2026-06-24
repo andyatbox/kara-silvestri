@@ -19,7 +19,9 @@ html {
 }
 
 body {
-  background: var(--background);
+  /* No background here — the black lives on <html> so fixed -z-10 page
+     backgrounds (Acting/Connect) can show through. */
+  background: transparent;
   color: var(--foreground);
   font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
