@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — WebGL underwater background with the wordmark anchored right */}
-      <section className="relative h-[90svh] min-h-[600px] overflow-hidden">
+      <section className="relative h-[70svh] min-h-[480px] overflow-hidden">
         <WaterBackground src="/assets/underwater-home.jpg" alt="Kara Silvestri" />
 
         {/* Kara cutout: full height, bottom-anchored, right edge at the 50% line
@@ -24,12 +24,13 @@ export default function HomePage() {
 
         {/* Top scrim for nav legibility */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-[6] h-40 bg-gradient-to-b from-black/45 to-transparent" />
-        {/* Bottom fade: ~200px black -> transparent so it only overlaps the fold slightly */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-[200px] bg-gradient-to-t from-black to-transparent" />
+        {/* Bottom fade: small blend of the image bottom into the black below */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-[160px] bg-gradient-to-t from-black to-transparent" />
       </section>
 
-      {/* Bio — pulled up just slightly so only a few lines peek on landing */}
-      <section className="relative z-10 mx-auto -mt-[6vh] max-w-4xl px-6 pb-24 sm:-mt-[5vh] sm:px-8 sm:pb-36">
+      {/* Bio — logo + title sit just below the hero (visible on landing);
+          paragraphs fall below the fold. Detached from the hero gradient. */}
+      <section className="relative z-10 mx-auto max-w-4xl px-6 pb-24 pt-8 sm:px-8 sm:pb-36">
         <Reveal className="flex justify-center">
           <Image
             src="/assets/logo-content-white.png"
@@ -37,7 +38,7 @@ export default function HomePage() {
             width={460}
             height={180}
             priority
-            className="mb-8 h-auto w-[clamp(180px,40vw,440px)]"
+            className="mb-7 h-auto w-[clamp(140px,26vw,320px)]"
           />
         </Reveal>
         <Reveal>
