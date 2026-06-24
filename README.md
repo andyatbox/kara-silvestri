@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kara Silvestri — KaraSilvestri.com
 
-## Getting Started
+Portfolio site for Kara Silvestri (Creative Director · Filmmaker · Musician · Actress · Host), built with **Next.js (App Router)**, **React**, **TypeScript**, and **Tailwind CSS v4**. Fully responsive, dark, type-driven, with scroll reveals and parallax.
 
-First, run the development server:
+## Pages
+
+| Route           | Description                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| `/`             | Homepage — cover hero with wordmark, bio, large links, Drake Bell CTA + modal.                |
+| `/design-film`  | Intro + responsive grid of **Webflow "project" CMS** teasers → detail pages (`/projects/...`).|
+| `/music`        | Cover hero, "Releases" intro, **Webflow "releases" CMS** entries (image/text + video embeds). |
+| `/acting`       | Narrative drawn from the résumé + résumé PDF download.                                         |
+| `/connect`      | Portrait, intro, email, Linktree & Instagram links.                                           |
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run start    # serve the production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Webflow content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The Design & Film and Music pages pull from Webflow via the Data API v2. Until
+credentials are provided the site renders **local mock content** (see
+`src/lib/mockData.ts`), so it runs fully offline during development.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To connect live content, copy `.env.example` → `.env.local` and fill in:
 
-## Learn More
+```
+WEBFLOW_API_TOKEN=               # Webflow site API token (CMS read)
+WEBFLOW_PROJECTS_COLLECTION_ID=  # "project" collection id  → /design-film
+WEBFLOW_RELEASES_COLLECTION_ID=  # "releases" collection id → /music
+```
 
-To learn more about Next.js, take a look at the following resources:
+Field-slug → app mapping lives in `src/lib/webflow.ts` (`fromWebflowProject`,
+`fromWebflowRelease`). Adjust the field slugs there to match the actual Webflow
+collection schema. If a fetch fails, the layer logs and falls back to mock data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Assets
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Brand assets, backgrounds, the event flyer, and the résumé live in
+`public/assets/` (sourced from the original `kara-silvestri/` folder).
 
-## Deploy on Vercel
+## Notes / easy tweaks
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The homepage hero uses `logo-content-black.png` per the brief; swap to
+  `logo-content-white.png` in `src/app/page.tsx` if more contrast is wanted.
+- Site-wide nav, contact, and event details are centralized in `src/lib/site.ts`.
+- The Drake Bell × Kara Silvestri modal is a shared provider
+  (`src/components/DrakeBell.tsx`) used by both the Home and Music CTAs.
