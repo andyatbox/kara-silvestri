@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — WebGL underwater background with the wordmark anchored right */}
-      <section className="relative h-[70svh] min-h-[480px] overflow-hidden">
+      <section className="relative h-[100svh] min-h-[560px] overflow-hidden">
         <WaterBackground src="/assets/underwater-home.jpg" alt="Kara Silvestri" />
 
         {/* Kara cutout: full height, bottom-anchored, right edge at the 50% line

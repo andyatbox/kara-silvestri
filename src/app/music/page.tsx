@@ -19,7 +19,7 @@ export default async function MusicPage() {
   return (
     <div className="bg-black">
       {/* Hero — cover background with the wordmark anchored right (like Home) */}
-      <section className="relative h-[90svh] min-h-[600px] overflow-hidden">
+      <section className="relative h-[100svh] min-h-[560px] overflow-hidden">
         <ParallaxBackground
           src="/assets/music-bg.jpg"
           alt="Kara Silvestri"
