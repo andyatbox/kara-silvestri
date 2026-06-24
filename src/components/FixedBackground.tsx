@@ -14,7 +14,8 @@ export default function FixedBackground({
 }) {
   return (
     <div className="fixed inset-0 -z-10" aria-hidden>
-      <WaterBackground src={src} alt={alt} />
+      {/* Distortion only — no caustic tinting (that look is reserved for Home). */}
+      <WaterBackground src={src} alt={alt} caustics={false} />
     </div>
   );
 }

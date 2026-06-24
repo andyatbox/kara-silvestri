@@ -6,6 +6,8 @@ type WaterBackgroundProps = {
   src: string;
   alt?: string;
   className?: string;
+  /** When false, only the ripple distortion runs — no caustic light/tinting. */
+  caustics?: boolean;
 };
 
 const VERT = `
@@ -24,6 +26,7 @@ uniform sampler2D uTex;
 uniform float uTime;
 uniform vec2 uRes;
 uniform vec2 uImg;
+uniform float uCaustic;
 
 void main() {
   float canvasAspect = uRes.x / uRes.y;
@@ -49,7 +52,7 @@ void main() {
   // moving caustic light shimmer (reads as rippling water even on dark frames)
   float c = sin((uv.x + uv.y) * 20.0 + t * 1.3)
           * cos((uv.x - uv.y) * 16.0 - t * 1.0);
-  col += c * 0.05 * depth;
+  col += c * 0.05 * depth * uCaustic;
 
   gl_FragColor = vec4(col, 1.0);
 }`;
@@ -69,6 +72,7 @@ export default function WaterBackground({
   src,
   alt = "",
   className = "",
+  caustics = true,
 }: WaterBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [failed, setFailed] = useState(false);
@@ -118,6 +122,7 @@ export default function WaterBackground({
     const uTime = gl.getUniformLocation(program, "uTime");
     const uRes = gl.getUniformLocation(program, "uRes");
     const uImg = gl.getUniformLocation(program, "uImg");
+    const uCaustic = gl.getUniformLocation(program, "uCaustic");
 
     const texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -173,6 +178,7 @@ export default function WaterBackground({
       gl.uniform1f(uTime, t);
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform2f(uImg, imgW, imgH);
+      gl.uniform1f(uCaustic, caustics ? 1.0 : 0.0);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       if (!reduce) raf = requestAnimationFrame(render);
     };
@@ -193,7 +199,7 @@ export default function WaterBackground({
       gl.deleteBuffer(buffer);
       gl.deleteTexture(texture);
     };
-  }, [src]);
+  }, [src, caustics]);
 
   if (failed) {
     // Graceful fallback: static cover image.
