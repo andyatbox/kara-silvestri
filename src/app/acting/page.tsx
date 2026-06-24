@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ActingPage() {
   return (
     <div className="relative">
-      <FixedBackground src="/assets/underwater.jpg" overlay={0.6} />
+      <FixedBackground src="/assets/underwater.jpg" overlay={0.25} />
 
       <section className="mx-auto max-w-3xl px-6 pb-32 pt-36 sm:px-8 sm:pb-40 sm:pt-44">
         <Reveal>

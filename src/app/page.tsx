@@ -24,8 +24,8 @@ export default function HomePage() {
 
         {/* Top scrim for nav legibility */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-[6] h-40 bg-gradient-to-b from-black/45 to-transparent" />
-        {/* Bottom fade: image + portrait dissolve into black going up */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-[28%] bg-gradient-to-t from-black via-black/40 to-transparent" />
+        {/* Bottom fade: ~200px black -> transparent so it only overlaps the fold slightly */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-[200px] bg-gradient-to-t from-black to-transparent" />
 
         {/* Wordmark: left edge of the image sits at the 60% line, scaled responsively */}
         <div className="absolute left-[60%] top-[16%] z-10 pr-5">

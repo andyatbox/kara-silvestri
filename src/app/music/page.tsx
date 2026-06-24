@@ -29,7 +29,7 @@ export default async function MusicPage() {
           speed={0.18}
         />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-black to-transparent" />
 
         <div className="absolute left-[60%] top-[16%] z-10 pr-5">
           <Image
