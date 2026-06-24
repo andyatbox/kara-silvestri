@@ -66,7 +66,7 @@ export default function Nav() {
                 <Link
                   href={item.href}
                   data-active={isActive(item.href)}
-                  className="nav-underline text-[0.95rem] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90"
+                  className="nav-underline text-[0.95rem] uppercase tracking-[0.2em] text-white transition-colors hover:text-magenta"
                 >
                   {item.label}
                 </Link>
@@ -115,7 +115,7 @@ export default function Nav() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 data-active={isActive(item.href)}
-                className="nav-underline text-3xl font-extralight uppercase tracking-[0.18em] text-white"
+                className="nav-underline text-3xl font-extralight uppercase tracking-[0.18em] text-white transition-colors hover:text-magenta"
                 style={{
                   transitionDelay: open ? `${i * 60 + 80}ms` : "0ms",
                   transform: open ? "translateY(0)" : "translateY(12px)",

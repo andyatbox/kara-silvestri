@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import FixedBackground from "@/components/FixedBackground";
 import { CONTACT } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Connect",
+  path: "/connect",
   description:
-    "Let's connect and explore all things creative — music, film, design, live performances, upcoming releases, and social channels.",
-};
+    "Get in touch with Kara Silvestri — music, film, design, live performances, upcoming releases, and social channels.",
+});
 
 export default function ConnectPage() {
   return (
@@ -47,7 +48,7 @@ export default function ConnectPage() {
                 Email me at{" "}
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="underline decoration-white/30 underline-offset-4 transition hover:decoration-white"
+                  className="underline decoration-white/30 underline-offset-4 transition hover:text-magenta hover:decoration-magenta"
                 >
                   {CONTACT.email}
                 </a>
@@ -105,13 +106,13 @@ function ConnectLink({
         <span className="block text-[0.65rem] uppercase tracking-[0.25em] text-white/45">
           {label}
         </span>
-        <span className="mt-1 block text-lg font-light tracking-wide text-white">
+        <span className="mt-1 block text-lg font-light tracking-wide text-white transition-colors group-hover:text-magenta">
           {value}
         </span>
       </span>
       <span
         aria-hidden
-        className="text-xl text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+        className="text-xl text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-magenta"
       >
         ↗
       </span>

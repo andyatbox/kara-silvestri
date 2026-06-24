@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import FixedBackground from "@/components/FixedBackground";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Acting",
+  path: "/acting",
   description:
-    "Kara Silvestri's work in front of and behind the camera — an award-winning Best Actress, film director, and on-set collaborator.",
-};
+    "Award-winning Best Actress, film director, and on-set collaborator — Kara Silvestri's work in front of and behind the camera.",
+});
 
 export default function ActingPage() {
   return (

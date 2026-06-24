@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
 import { getProjects } from "@/lib/webflow";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Design & Film",
+  path: "/design-film",
   description:
-    "Creative direction, advertising, branding, and film production by Kara Silvestri, Senior Art Director based between New Jersey and New York City.",
-};
+    "Creative direction, advertising, branding, and film production by Kara Silvestri — Senior Art Director based between New Jersey and New York City.",
+});
 
 export default async function DesignFilmPage() {
   const projects = await getProjects();

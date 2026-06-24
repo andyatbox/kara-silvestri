@@ -3,6 +3,7 @@
 @theme inline {
   --color-background: #000000;
   --color-foreground: #ffffff;
+  --color-magenta: #ff33cc;
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 

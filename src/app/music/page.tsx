@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import Reveal from "@/components/Reveal";
@@ -6,12 +5,14 @@ import MediaImage from "@/components/MediaImage";
 import VideoEmbed from "@/components/VideoEmbed";
 import { DrakeBellCTA } from "@/components/DrakeBell";
 import { getReleases } from "@/lib/webflow";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Music",
+  path: "/music",
   description:
-    "Original music by Kara Silvestri — including the EP 'War'. Releases, stories, and videos rooted in rhythm, atmosphere, and human connection.",
-};
+    "Original music by Kara Silvestri, including the EP 'War' — releases, stories, and videos rooted in rhythm, atmosphere, and human connection.",
+});
 
 export default async function MusicPage() {
   const releases = await getReleases();

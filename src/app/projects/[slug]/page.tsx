@@ -5,6 +5,7 @@ import MediaImage from "@/components/MediaImage";
 import VideoEmbed from "@/components/VideoEmbed";
 import Reveal from "@/components/Reveal";
 import { getProject, getProjects } from "@/lib/webflow";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const projects = await getProjects();
@@ -19,10 +20,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = await getProject(slug);
   if (!project) return { title: "Project" };
-  return {
+  return pageMetadata({
     title: project.title,
-    description: project.summary,
-  };
+    path: `/projects/${project.slug}`,
+    description:
+      project.summary ??
+      `${project.title} — work by Kara Silvestri.`,
+  });
 }
 
 export default async function ProjectPage({
@@ -83,7 +87,7 @@ export default async function ProjectPage({
         <div className="mt-16">
           <Link
             href="/design-film"
-            className="nav-link text-white/60 transition-colors hover:text-white"
+            className="nav-link text-white/60 transition-colors hover:text-magenta"
           >
             ← Back to Design &amp; Film
           </Link>
