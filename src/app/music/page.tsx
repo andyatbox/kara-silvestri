@@ -43,8 +43,8 @@ export default async function MusicPage() {
         </div>
       </section>
 
-      {/* Releases — pulled up just slightly so only a few lines peek on landing */}
-      <section className="relative z-10 mx-auto -mt-[6vh] max-w-5xl px-6 pb-24 sm:-mt-[5vh] sm:px-8 sm:pb-32">
+      {/* Releases — pops up over the hero */}
+      <section className="relative z-10 mx-auto -mt-[35vh] max-w-5xl px-6 pb-24 sm:px-8 sm:pb-32">
         <Reveal>
           <h1 className="text-3xl font-extralight tracking-wide sm:text-5xl">
             Releases

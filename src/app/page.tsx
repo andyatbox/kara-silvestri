@@ -28,9 +28,8 @@ export default function HomePage() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-[160px] bg-gradient-to-t from-black to-transparent" />
       </section>
 
-      {/* Bio — logo + title sit just below the hero (visible on landing);
-          paragraphs fall below the fold. Detached from the hero gradient. */}
-      <section className="relative z-10 mx-auto max-w-4xl px-6 pb-24 pt-8 sm:px-8 sm:pb-36">
+      {/* Bio — pops up over the hero so the logo + title sit on the image */}
+      <section className="relative z-10 mx-auto -mt-[35vh] max-w-4xl px-6 pb-24 sm:px-8 sm:pb-36">
         <Reveal className="flex justify-center">
           <Image
             src="/assets/logo-content-white.png"
