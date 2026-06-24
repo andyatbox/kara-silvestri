@@ -8,28 +8,40 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — WebGL underwater background with the wordmark anchored right */}
-      <section className="relative h-[92svh] min-h-[560px] overflow-hidden">
+      <section className="relative h-[68svh] min-h-[480px] overflow-hidden">
         <WaterBackground src="/assets/underwater-home.jpg" alt="Kara Silvestri" />
-        {/* Top scrim for nav legibility */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent" />
-        {/* Bottom fade: image dissolves into pure black going up */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black via-black/70 to-transparent" />
 
-        {/* Wordmark: left edge of the image sits at the 50% line, scaled responsively */}
-        <div className="absolute left-1/2 top-[16%] z-10 pr-5">
+        {/* Kara cutout: full height, bottom-anchored, right edge at the 50% line
+            so it fills the left half and falls off the left on small screens. */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-[5] w-1/2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/kara.png"
+            alt="Kara Silvestri"
+            className="absolute bottom-0 right-0 h-full w-auto max-w-none"
+          />
+        </div>
+
+        {/* Top scrim for nav legibility */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-[6] h-40 bg-gradient-to-b from-black/45 to-transparent" />
+        {/* Bottom fade: image + portrait dissolve into black going up */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-[28%] bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+        {/* Wordmark: left edge of the image sits at the 60% line, scaled responsively */}
+        <div className="absolute left-[60%] top-[16%] z-10 pr-5">
           <Image
             src="/assets/logo-content-black.png"
             alt="Kara Silvestri"
             width={460}
             height={180}
             priority
-            className="h-auto w-[clamp(160px,36vw,440px)] drop-shadow-[0_2px_30px_rgba(255,255,255,0.22)]"
+            className="h-auto w-[clamp(150px,32vw,420px)] drop-shadow-[0_2px_30px_rgba(255,255,255,0.22)]"
           />
         </div>
       </section>
 
-      {/* Bio — pulled up so the heading overlaps the bottom of the hero image */}
-      <section className="relative z-10 mx-auto -mt-[22vh] max-w-4xl px-6 pb-24 sm:-mt-[15vh] sm:px-8 sm:pb-36">
+      {/* Bio — pulled up so the heading + first paragraph land above the fold */}
+      <section className="relative z-10 mx-auto -mt-[12vh] max-w-4xl px-6 pb-24 sm:-mt-[10vh] sm:px-8 sm:pb-36">
         <Reveal>
           <h2 className="text-balance text-2xl font-extralight leading-tight tracking-wide sm:text-3xl md:text-[2.6rem]">
             Creative Director + Filmmaker + Musician + Actress + Host

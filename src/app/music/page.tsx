@@ -19,7 +19,7 @@ export default async function MusicPage() {
   return (
     <div className="bg-black">
       {/* Hero — cover background with the wordmark anchored right (like Home) */}
-      <section className="relative h-[92svh] min-h-[560px] overflow-hidden">
+      <section className="relative h-[68svh] min-h-[480px] overflow-hidden">
         <ParallaxBackground
           src="/assets/music-bg.jpg"
           alt="Kara Silvestri"
@@ -29,22 +29,22 @@ export default async function MusicPage() {
           speed={0.18}
         />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black via-black/70 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-        <div className="absolute left-1/2 top-[16%] z-10 pr-5">
+        <div className="absolute left-[60%] top-[16%] z-10 pr-5">
           <Image
             src="/assets/logo-content-white.png"
             alt="Kara Silvestri"
             width={460}
             height={180}
             priority
-            className="h-auto w-[clamp(160px,36vw,440px)] drop-shadow-[0_2px_30px_rgba(0,0,0,0.45)]"
+            className="h-auto w-[clamp(150px,32vw,420px)] drop-shadow-[0_2px_30px_rgba(0,0,0,0.45)]"
           />
         </div>
       </section>
 
-      {/* Releases — pulled up so the heading overlaps the bottom of the image */}
-      <section className="relative z-10 mx-auto -mt-[22vh] max-w-5xl px-6 pb-24 sm:-mt-[15vh] sm:px-8 sm:pb-32">
+      {/* Releases — pulled up so the heading + first paragraph land above the fold */}
+      <section className="relative z-10 mx-auto -mt-[12vh] max-w-5xl px-6 pb-24 sm:-mt-[10vh] sm:px-8 sm:pb-32">
         <Reveal>
           <h1 className="text-3xl font-extralight tracking-wide sm:text-5xl">
             Releases
