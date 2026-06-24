@@ -9,11 +9,7 @@ export default function HomePage() {
     <>
       {/* Hero — WebGL underwater background with the wordmark anchored right */}
       <section className="relative h-[92svh] min-h-[560px] overflow-hidden">
-        <WaterBackground
-          src="/assets/home-bg.jpg"
-          srcPortrait="/assets/home-bg-mobile.jpg"
-          alt="Kara Silvestri"
-        />
+        <WaterBackground src="/assets/underwater-home.jpg" alt="Kara Silvestri" />
         {/* Top scrim for nav legibility */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent" />
         {/* Bottom fade: image dissolves into pure black going up */}

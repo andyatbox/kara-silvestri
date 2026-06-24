@@ -1,8 +1,9 @@
-import Image from "next/image";
+import WaterBackground from "@/components/WaterBackground";
 
 /**
- * Full-viewport fixed cover background with a dark overlay for text legibility.
- * Sits behind page content (content backgrounds should be transparent).
+ * Full-viewport fixed background with the underwater distortion effect and a
+ * dark overlay for text legibility. Sits behind page content (content
+ * backgrounds should be transparent).
  */
 export default function FixedBackground({
   src,
@@ -15,14 +16,7 @@ export default function FixedBackground({
 }) {
   return (
     <div className="fixed inset-0 -z-10" aria-hidden>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      <WaterBackground src={src} alt={alt} />
       <div
         className="absolute inset-0"
         style={{ backgroundColor: `rgba(0,0,0,${overlay})` }}

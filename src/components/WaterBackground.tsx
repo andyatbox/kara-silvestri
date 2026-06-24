@@ -3,10 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 type WaterBackgroundProps = {
-  /** Landscape / default source. */
   src: string;
-  /** Optional source used when the viewport is in portrait orientation. */
-  srcPortrait?: string;
   alt?: string;
   className?: string;
 };
@@ -70,7 +67,6 @@ function compile(gl: WebGLRenderingContext, type: number, source: string) {
 
 export default function WaterBackground({
   src,
-  srcPortrait,
   alt = "",
   className = "",
 }: WaterBackgroundProps) {
@@ -78,12 +74,6 @@ export default function WaterBackground({
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    const pick = () =>
-      srcPortrait &&
-      window.matchMedia("(orientation: portrait)").matches
-        ? srcPortrait
-        : src;
-
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -150,29 +140,15 @@ export default function WaterBackground({
 
     let imgW = 1;
     let imgH = 1;
-    let currentSrc = "";
-
-    const loadTexture = (url: string) => {
-      if (url === currentSrc) return;
-      currentSrc = url;
-      const img = new window.Image();
-      img.crossOrigin = "anonymous";
-      img.onload = () => {
-        imgW = img.naturalWidth;
-        imgH = img.naturalHeight;
-        gl.bindTexture(gl.TEXTURE_2D, texture);
-        gl.texImage2D(
-          gl.TEXTURE_2D,
-          0,
-          gl.RGBA,
-          gl.RGBA,
-          gl.UNSIGNED_BYTE,
-          img,
-        );
-      };
-      img.src = url;
+    const img = new window.Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      imgW = img.naturalWidth;
+      imgH = img.naturalHeight;
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
     };
-    loadTexture(pick()!);
+    img.src = src;
 
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -203,7 +179,6 @@ export default function WaterBackground({
 
     const onResize = () => {
       resize();
-      loadTexture(pick()!);
       if (reduce) render(performance.now()); // static mode needs a manual redraw
     };
 
@@ -218,21 +193,17 @@ export default function WaterBackground({
       gl.deleteBuffer(buffer);
       gl.deleteTexture(texture);
     };
-  }, [src, srcPortrait]);
+  }, [src]);
 
   if (failed) {
-    // Graceful fallback: static cover image, orientation-aware via <picture>.
+    // Graceful fallback: static cover image.
     return (
-      <picture>
-        {srcPortrait && (
-          <source media="(orientation: portrait)" srcSet={srcPortrait} />
-        )}
-        <img
-          src={src}
-          alt={alt}
-          className={`absolute inset-0 h-full w-full object-cover ${className}`}
-        />
-      </picture>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={src}
+        alt={alt}
+        className={`absolute inset-0 h-full w-full object-cover ${className}`}
+      />
     );
   }
 
