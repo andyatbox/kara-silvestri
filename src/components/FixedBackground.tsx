@@ -1,26 +1,20 @@
 import WaterBackground from "@/components/WaterBackground";
 
 /**
- * Full-viewport fixed background with the underwater distortion effect and a
- * dark overlay for text legibility. Sits behind page content (content
- * backgrounds should be transparent).
+ * Full-viewport fixed background (cover) with the underwater distortion effect.
+ * No tint — content backgrounds should be transparent so this shows through.
+ * Relies on the black living on <html> (not <body>) so this -z-10 layer paints.
  */
 export default function FixedBackground({
   src,
   alt = "",
-  overlay = 0.55,
 }: {
   src: string;
   alt?: string;
-  overlay?: number;
 }) {
   return (
     <div className="fixed inset-0 -z-10" aria-hidden>
       <WaterBackground src={src} alt={alt} />
-      <div
-        className="absolute inset-0"
-        style={{ backgroundColor: `rgba(0,0,0,${overlay})` }}
-      />
     </div>
   );
 }

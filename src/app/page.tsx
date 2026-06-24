@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — WebGL underwater background with the wordmark anchored right */}
-      <section className="relative h-[68svh] min-h-[480px] overflow-hidden">
+      <section className="relative h-[90svh] min-h-[600px] overflow-hidden">
         <WaterBackground src="/assets/underwater-home.jpg" alt="Kara Silvestri" />
 
         {/* Kara cutout: full height, bottom-anchored, right edge at the 50% line
@@ -40,8 +40,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Bio — pulled up so the heading + first paragraph land above the fold */}
-      <section className="relative z-10 mx-auto -mt-[12vh] max-w-4xl px-6 pb-24 sm:-mt-[10vh] sm:px-8 sm:pb-36">
+      {/* Bio — pulled up just slightly so only a few lines peek on landing */}
+      <section className="relative z-10 mx-auto -mt-[6vh] max-w-4xl px-6 pb-24 sm:-mt-[5vh] sm:px-8 sm:pb-36">
         <Reveal>
           <h2 className="text-balance text-2xl font-extralight leading-tight tracking-wide sm:text-3xl md:text-[2.6rem]">
             Creative Director + Filmmaker + Musician + Actress + Host

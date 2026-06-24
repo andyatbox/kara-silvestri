@@ -36,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-black text-white antialiased">
+    <html lang="en" className={`${montserrat.variable} h-full bg-black`}>
+      <body className="min-h-full flex flex-col text-white antialiased">
         <DrakeBellProvider>
           <Nav />
           <div className="flex-1">{children}</div>

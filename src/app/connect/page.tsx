@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ConnectPage() {
   return (
     <div className="relative">
-      <FixedBackground src="/assets/underwater.jpg" overlay={0.25} />
+      <FixedBackground src="/assets/underwater.jpg" />
       <section className="mx-auto max-w-5xl px-6 pb-20 pt-36 sm:px-8 sm:pb-28 sm:pt-44">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
           <Reveal>
