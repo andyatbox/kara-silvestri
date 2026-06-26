@@ -17,7 +17,7 @@ export default function HomePage() {
         <img
           src="/assets/kara.png"
           alt="Kara Silvestri"
-          className="pointer-events-none absolute bottom-0 left-1/2 z-[5] h-[58svh] w-auto max-w-none -translate-x-1/2 lg:left-auto lg:right-1/2 lg:h-full lg:translate-x-0"
+          className="pointer-events-none absolute bottom-0 left-[28%] z-[5] h-[58svh] w-auto max-w-none -translate-x-1/2 lg:left-auto lg:right-1/2 lg:h-full lg:translate-x-0"
         />
 
         {/* Top scrim for nav legibility */}
