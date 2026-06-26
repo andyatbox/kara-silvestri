@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import Reveal from "@/components/Reveal";
 import MediaImage from "@/components/MediaImage";
@@ -19,7 +18,7 @@ export default async function MusicPage() {
 
   return (
     <div className="bg-black">
-      {/* Hero — cover background with the wordmark anchored right (like Home) */}
+      {/* Hero — full-bleed cover of the new music background (Kara centered) */}
       <section className="relative h-[100svh] min-h-[560px] overflow-hidden">
         <ParallaxBackground
           src="/assets/music-bg.jpg"
@@ -31,17 +30,6 @@ export default async function MusicPage() {
         />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-black to-transparent" />
-
-        <div className="absolute left-[60%] top-1/2 z-10 -translate-y-1/2 pr-5">
-          <Image
-            src="/assets/logo-content-white.png"
-            alt="Kara Silvestri"
-            width={460}
-            height={180}
-            priority
-            className="h-auto w-[clamp(150px,32vw,420px)] drop-shadow-[0_2px_30px_rgba(0,0,0,0.45)]"
-          />
-        </div>
       </section>
 
       {/* Releases — pops up over the hero */}
