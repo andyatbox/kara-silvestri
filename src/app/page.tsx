@@ -11,16 +11,14 @@ export default function HomePage() {
       <section className="relative h-[100svh] min-h-[560px] overflow-hidden">
         <WaterBackground src="/assets/underwater-home.jpg" alt="Kara Silvestri" />
 
-        {/* Kara cutout: full height, bottom-anchored, right edge at the 50% line
-            so it fills the left half and falls off the left on small screens. */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-[5] w-1/2">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/kara.png"
-            alt="Kara Silvestri"
-            className="absolute bottom-0 right-0 h-full w-auto max-w-none"
-          />
-        </div>
+        {/* Kara cutout — centered and sized to fit on phones/portrait; left-half
+            full-height on large (landscape) screens with the right edge at 50%. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/kara.png"
+          alt="Kara Silvestri"
+          className="pointer-events-none absolute bottom-0 left-1/2 z-[5] h-[58svh] w-auto max-w-none -translate-x-1/2 lg:left-auto lg:right-1/2 lg:h-full lg:translate-x-0"
+        />
 
         {/* Top scrim for nav legibility */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-[6] h-40 bg-gradient-to-b from-black/45 to-transparent" />

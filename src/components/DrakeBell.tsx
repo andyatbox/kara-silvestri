@@ -61,23 +61,26 @@ function DrakeBellModal({ onClose }: { onClose: () => void }) {
       role="dialog"
       aria-modal="true"
       aria-label="Drake Bell × Kara Silvestri"
-      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/80 px-4 pb-6 pt-24 backdrop-blur-md sm:px-8 sm:pb-10 sm:pt-28 animate-[fadeIn_.3s_ease]"
+      className="fixed inset-0 z-[200] overflow-y-auto overscroll-contain bg-black/80 backdrop-blur-md animate-[fadeIn_.3s_ease]"
       onClick={onClose}
     >
-      <div
-        className="relative my-auto max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-2xl border border-white/10 bg-[#070b0c] shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
+      {/* Close button is fixed to the viewport so it's always reachable. */}
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        className="fixed right-4 top-4 z-[210] flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-2xl font-thin text-white/80 backdrop-blur-sm transition hover:bg-black hover:text-white"
       >
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close"
-          className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-2xl font-thin text-white/80 transition hover:bg-black hover:text-white"
-        >
-          ×
-        </button>
+        ×
+      </button>
 
-        <div className="grid grid-cols-1 gap-8 p-6 sm:p-10 md:grid-cols-2 md:gap-12">
+      {/* Single scroll container: centers when it fits, scrolls when taller. */}
+      <div className="flex min-h-full items-start justify-center p-4 sm:items-center sm:p-8">
+        <div
+          className="relative w-full max-w-5xl rounded-2xl border border-white/10 bg-[#070b0c] shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="grid grid-cols-1 gap-8 p-6 sm:p-10 md:grid-cols-2 md:gap-12">
           <div className="w-full overflow-hidden rounded-xl bg-black/40">
             {/* Plain img so the flyer is shown in full and never cropped. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -132,6 +135,7 @@ function DrakeBellModal({ onClose }: { onClose: () => void }) {
             >
               Get Tickets
             </a>
+          </div>
           </div>
         </div>
       </div>
