@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import MediaImage from "@/components/MediaImage";
 import VideoEmbed from "@/components/VideoEmbed";
 import Reveal from "@/components/Reveal";
 import { getProject, getProjects } from "@/lib/webflow";
@@ -36,62 +35,68 @@ export default async function ProjectPage({
   const project = await getProject(slug);
   if (!project || project.externalUrl) notFound();
 
+  const blocks = project.blocks ?? [];
+
   return (
     <article className="bg-black">
-      {/* Hero media */}
-      <div className="relative h-[60vh] min-h-[360px] w-full overflow-hidden">
-        {project.teaserImage && (
-          <MediaImage
-            src={project.teaserImage}
-            alt={project.title}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30" />
-        <div className="absolute inset-x-0 bottom-0 mx-auto max-w-5xl px-6 pb-12 sm:px-8">
+      {/* Title header */}
+      <header className="mx-auto max-w-5xl px-6 pb-12 pt-36 sm:px-8 sm:pb-16 sm:pt-44">
+        <Reveal>
           {project.category && (
-            <p className="mb-2 text-xs uppercase tracking-[0.25em] text-white/60">
+            <p className="mb-3 text-xs uppercase tracking-[0.25em] text-white/55">
               {project.category}
             </p>
           )}
-          <h1 className="text-3xl font-extralight leading-tight tracking-wide sm:text-5xl md:text-6xl">
+          <h1 className="text-balance text-3xl font-extralight leading-tight tracking-wide sm:text-5xl md:text-6xl">
             {project.title}
           </h1>
+        </Reveal>
+      </header>
+
+      {/* Ordered case-study content */}
+      <div className="mx-auto max-w-5xl px-6 pb-8 sm:px-8">
+        <div className="space-y-10 sm:space-y-14">
+          {blocks.map((block, i) => {
+            if (block.type === "text") {
+              return (
+                <Reveal key={i}>
+                  <p className="body-copy mx-auto max-w-3xl text-white/85">
+                    {block.text}
+                  </p>
+                </Reveal>
+              );
+            }
+            if (block.type === "video") {
+              return (
+                <Reveal key={i}>
+                  <VideoEmbed url={block.url} title={project.title} />
+                </Reveal>
+              );
+            }
+            return (
+              <Reveal key={i}>
+                {/* Case-study panels have varied aspect ratios; render at natural
+                    size so nothing is cropped or distorted. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={block.url}
+                  alt={`${project.title} — ${i + 1}`}
+                  loading="lazy"
+                  className="mx-auto block h-auto w-full rounded-lg"
+                />
+              </Reveal>
+            );
+          })}
         </div>
       </div>
 
-      <div className="mx-auto max-w-3xl px-6 py-20 sm:px-8 sm:py-28">
-        {project.summary && (
-          <Reveal>
-            <p className="body-copy text-white/90">{project.summary}</p>
-          </Reveal>
-        )}
-
-        {project.body && (
-          <Reveal delay={80}>
-            <p className="body-copy mt-8 text-white/75">{project.body}</p>
-          </Reveal>
-        )}
-
-        {project.teaserVideo && (
-          <Reveal delay={120}>
-            <div className="mt-12">
-              <VideoEmbed url={project.teaserVideo} title={project.title} />
-            </div>
-          </Reveal>
-        )}
-
-        <div className="mt-16">
-          <Link
-            href="/design-film"
-            className="nav-link text-white/60 transition-colors hover:text-magenta"
-          >
-            ← Back to Design &amp; Film
-          </Link>
-        </div>
+      <div className="mx-auto max-w-5xl px-6 pb-24 pt-12 sm:px-8 sm:pb-32">
+        <Link
+          href="/design-film"
+          className="nav-link text-white/60 transition-colors hover:text-magenta"
+        >
+          ← Back to Design &amp; Film
+        </Link>
       </div>
     </article>
   );

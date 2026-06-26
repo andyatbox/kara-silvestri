@@ -52,21 +52,7 @@ export default async function MusicPage() {
           </h1>
         </Reveal>
 
-        <Reveal delay={80}>
-          <p className="body-copy mt-8 text-white/80">
-            &apos;War&apos; was a product of my time in the studio in LA, where I
-            traveled in 2022 to my producer&apos;s studio to work on the songs I
-            wanted on my EP. &apos;War&apos; will be released as an EP collection
-            on all platforms later in 2025. &apos;War&apos; was actually born on
-            my 24th birthday in the studio—I wrote it that day while experimenting
-            with different ideas with my producers. Conceptually, &apos;War&apos;
-            explores the complexities of self-discovery and acceptance… The track
-            and accompanying songs on the EP will be released with a video that
-            conveys a powerful message about embracing all facets.
-          </p>
-        </Reveal>
-
-        {/* Individual release entries (Webflow CMS), each divided from the next */}
+        {/* Individual release entries, each divided from the next */}
         <div className="mt-16 divide-y divide-white/12 sm:mt-24">
           {releases.map((release, i) => {
             const flip = i % 2 === 1;
@@ -92,9 +78,13 @@ export default async function MusicPage() {
                     <h2 className="text-2xl font-extralight tracking-wide sm:text-4xl">
                       {release.title}
                     </h2>
-                    <p className="body-copy mt-5 text-white/75">
-                      {release.body}
-                    </p>
+                    <div className="mt-5 space-y-4 text-white/75">
+                      {release.body.split("\n\n").map((para, j) => (
+                        <p key={j} className="body-copy">
+                          {para}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
