@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "webflow:introspect": "node --env-file=.env.local scripts/webflow-introspect.mjs"
   },
   "dependencies": {
     "next": "16.2.9",
