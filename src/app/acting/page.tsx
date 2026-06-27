@@ -85,7 +85,7 @@ export default function ActingPage() {
 
       {/* Floating résumé download (bottom-right, like the live-event CTA) */}
       <a
-        href="/assets/KaraSilvestri_Resume_6.24.pdf"
+        href="/assets/KaraSilvestri_Resume_Acting.pdf"
         download
         className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-3 rounded-full border border-white/25 bg-black/55 px-7 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white shadow-xl backdrop-blur-md transition hover:border-white hover:bg-white hover:text-black sm:bottom-6 sm:right-6 sm:text-sm"
       >
