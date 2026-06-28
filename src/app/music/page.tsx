@@ -2,6 +2,7 @@ import ParallaxBackground from "@/components/ParallaxBackground";
 import Reveal from "@/components/Reveal";
 import MediaImage from "@/components/MediaImage";
 import VideoEmbed from "@/components/VideoEmbed";
+import ArtistBio from "@/components/ArtistBio";
 import { DrakeBellCTA } from "@/components/DrakeBell";
 import { getReleases } from "@/lib/webflow";
 import { pageMetadata } from "@/lib/seo";
@@ -34,8 +35,10 @@ export default async function MusicPage() {
 
       {/* Releases — pops up over the hero */}
       <section className="relative z-10 mx-auto -mt-[35vh] max-w-5xl px-6 pb-24 sm:px-8 sm:pb-32">
+        <ArtistBio />
+
         <Reveal>
-          <h1 className="text-3xl font-extralight tracking-wide sm:text-5xl">
+          <h1 className="mt-20 text-3xl font-extralight tracking-wide sm:mt-28 sm:text-5xl">
             Releases
           </h1>
         </Reveal>
