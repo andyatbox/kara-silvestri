@@ -37,11 +37,14 @@ export default function ConnectPage() {
               </h1>
             </Reveal>
             <Reveal delay={120}>
-              <h2 className="mt-5 text-base font-light leading-relaxed text-white/70 sm:text-lg">
-                Let&apos;s connect and explore all things creative, including
-                music, film, design, live performances, upcoming releases, and
-                social channels.
-              </h2>
+              <p className="mt-5 text-base font-light leading-relaxed text-white/80 sm:text-lg">
+                Thank you for taking the time to explore my work. Whether
+                you&apos;re interested in collaborating, discussing a creative
+                opportunity, booking a performance, representation, or simply
+                saying hello, I&apos;d love to hear from you. Please feel free to
+                reach out via email below, and I&apos;ll do my best to get back
+                to you as soon as possible.
+              </p>
             </Reveal>
             <Reveal delay={180}>
               <p className="body-copy mt-8 text-white/85">
@@ -53,6 +56,14 @@ export default function ConnectPage() {
                   {CONTACT.email}
                 </a>
               </p>
+            </Reveal>
+            <Reveal delay={240}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/ks-signature.png"
+                alt="Kara Silvestri signature"
+                className="mx-auto mt-6 h-auto w-36 md:mx-0"
+              />
             </Reveal>
           </div>
         </div>

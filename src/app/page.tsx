@@ -59,12 +59,7 @@ export default function HomePage() {
               With a deep passion for storytelling, Kara blends experience across
               design, film, live performance, and original music to create
               emotionally driven work rooted in rhythm, atmosphere, and human
-              connection.
-            </p>
-          </Reveal>
-          <Reveal delay={180}>
-            <p className="body-copy">
-              Known for her collaborative spirit, dynamic energy, and
+              connection. Known for her collaborative spirit, dynamic energy, and
               detail-oriented approach, she is passionate about exploring new
               creative possibilities and building meaningful experiences across
               mediums.

@@ -44,40 +44,36 @@ export default function ActingPage() {
           <Reveal delay={180}>
             <p className="body-copy">
               On screen, Kara has carried leading roles across film and music
-              videos. She starred as the{" "}
-              <strong className="font-medium text-white">Lead</strong> in{" "}
-              <em>Cassie and the Wildcats</em> (dir. Caleb Washington) and led
-              her own music videos—<em>War</em>, <em>In The Stars</em>, and{" "}
-              <em>Rose Colored Lenses</em>—as well as a supporting turn in{" "}
-              <em>Murder? I Hardly Know Her</em> at the School of Visual Arts.
+              videos. She starred as the lead in{" "}
+              <em>Cassie and the Wildcats</em> (dir. Caleb Washington) and has
+              appeared in her own original music videos, including <em>War</em>,{" "}
+              <em>In The Stars</em>, and <em>Rose Colored Lenses</em>, in addition
+              to a supporting role in <em>Murder? I Hardly Know Her</em> at the
+              School of Visual Arts.
             </p>
           </Reveal>
 
           <Reveal delay={240}>
             <p className="body-copy">
-              Her craft is grounded in serious training. Kara studied through the{" "}
-              <strong className="font-medium text-white">
-                Ultimate Performer Program
-              </strong>{" "}
-              in Los Angeles and{" "}
-              <strong className="font-medium text-white">The Project Class</strong>{" "}
+              Her craft is grounded in dedicated training. Kara studied through
+              the Ultimate Performer Program in Los Angeles and The Project Class
               at the School of Visual Arts, earning honors in Film Directing &amp;
               Performance Studies under mentors Bob Giraldi and Natasha
-              Soto-Albors—alongside private vocal training with Alison Bolshoi and
-              artist development with Roxie Francis.
+              Soto-Albors, alongside private vocal training with Alison Bolshoi
+              and artist development with Roxie Francis.
             </p>
           </Reveal>
 
           <Reveal delay={300}>
             <p className="body-copy">
-              As a vocalist, guitarist, and songwriter, she performs live
-              throughout NJ and NYC—including opening for{" "}
-              <strong className="font-medium text-white">Drake Bell</strong> at
-              the House of Independents in Asbury Park, the NJ PATH Performs
-              Program, and a range of benefit and showcase concerts. Her skills
-              span singing and songwriting across pop, country, rock, and indie,
-              on-camera hosting and interviewing, improvisation, and dance—an
-              artist as comfortable in front of the camera as she is on stage.
+              As a vocalist, guitarist, and songwriter, Kara performs live
+              throughout New Jersey and New York City, including opening for Drake
+              Bell at the House of Independents in Asbury Park, participating in
+              the NJ PATH Performs program, and appearing in a range of benefit
+              and showcase concerts. Her skills span singing and songwriting
+              across pop, country, rock, and indie genres, as well as on-camera
+              hosting, interviewing, improvisation, and dance—an artist equally at
+              home in front of the camera and on stage.
             </p>
           </Reveal>
         </div>
